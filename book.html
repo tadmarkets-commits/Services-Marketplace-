@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a clean — Tidely</title>
+  <meta name="description" content="Book a fixed-price home clean in Waterloo Region. Choose your home, add extras, see your all-in price, and pick a time. No quotes, no surprises.">
+  <meta name="theme-color" content="#1B5E4B">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231B5E4B'/%3E%3Cpath d='M9 16.5l4.2 4.2L23 11' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    *{margin:0;box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    /* ---------- Tokens (shared with landing page) ---------- */
+    :root{
+      --paper:#F6F8F4; --surface:#FFFFFF; --surface-mint:#E7F1EA; --surface-sand:#F2ECDF;
+      --ink:#152420; --ink-soft:#4C5C55; --line:#DDE5DE;
+      --primary:#1B5E4B; --primary-deep:#103C30; --primary-tint:#EAF3EE;
+      --accent:#C6873A; --accent-soft:#F1E4CD; --star:#D9A441;
+      --btn-bg:var(--primary); --btn-text:#FFFFFF;
+      --shadow-sm:0 1px 2px rgba(16,60,48,.06),0 2px 8px rgba(16,60,48,.05);
+      --shadow-md:0 8px 30px rgba(16,60,48,.10),0 2px 8px rgba(16,60,48,.06);
+      --shadow-lg:0 24px 60px rgba(16,60,48,.16),0 6px 18px rgba(16,60,48,.08);
+      --radius:16px; --radius-sm:10px; --maxw:900px;
+      --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Charter",Georgia,Cambria,serif;
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --paper:#0E1714; --surface:#15211C; --surface-mint:#152520; --surface-sand:#1C231F;
+        --ink:#EAF2EC; --ink-soft:#A6B7AF; --line:#273630;
+        --primary:#5CBE9B; --primary-deep:#8FD9BF; --primary-tint:#13241D;
+        --accent:#E0A551; --accent-soft:#2A2417; --star:#E5B45B;
+        --btn-bg:#5CBE9B; --btn-text:#0C1512;
+        --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow-md:0 10px 34px rgba(0,0,0,.42); --shadow-lg:0 28px 64px rgba(0,0,0,.5);
+      }
+    }
+    :root[data-theme="light"]{
+      --paper:#F6F8F4; --surface:#FFFFFF; --surface-mint:#E7F1EA; --surface-sand:#F2ECDF;
+      --ink:#152420; --ink-soft:#4C5C55; --line:#DDE5DE;
+      --primary:#1B5E4B; --primary-deep:#103C30; --primary-tint:#EAF3EE;
+      --accent:#C6873A; --accent-soft:#F1E4CD; --star:#D9A441; --btn-bg:var(--primary); --btn-text:#FFFFFF;
+      --shadow-sm:0 1px 2px rgba(16,60,48,.06),0 2px 8px rgba(16,60,48,.05);
+      --shadow-md:0 8px 30px rgba(16,60,48,.10),0 2px 8px rgba(16,60,48,.06);
+      --shadow-lg:0 24px 60px rgba(16,60,48,.16),0 6px 18px rgba(16,60,48,.08);
+    }
+    :root[data-theme="dark"]{
+      --paper:#0E1714; --surface:#15211C; --surface-mint:#152520; --surface-sand:#1C231F;
+      --ink:#EAF2EC; --ink-soft:#A6B7AF; --line:#273630;
+      --primary:#5CBE9B; --primary-deep:#8FD9BF; --primary-tint:#13241D;
+      --accent:#E0A551; --accent-soft:#2A2417; --star:#E5B45B; --btn-bg:#5CBE9B; --btn-text:#0C1512;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow-md:0 10px 34px rgba(0,0,0,.42); --shadow-lg:0 28px 64px rgba(0,0,0,.5);
+    }
+
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;
+      -webkit-font-smoothing:antialiased;padding-bottom:96px}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+    a{color:var(--primary)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .tnum{font-variant-numeric:tabular-nums}
+    .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
+
+    /* Header */
+    header.site{border-bottom:1px solid var(--line);background:var(--surface)}
+    .navbar{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--serif);font-size:1.3rem;font-weight:600;
+      color:var(--ink);text-decoration:none}
+    .brand .mark{width:28px;height:28px}
+    .backlink{font-size:.9rem;font-weight:600;color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
+    .backlink:hover{color:var(--primary)}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sans);
+      font-size:1rem;font-weight:600;border-radius:999px;padding:.8rem 1.5rem;border:1px solid transparent;
+      cursor:pointer;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+    .btn-primary{background:var(--btn-bg);color:var(--btn-text);box-shadow:var(--shadow-sm)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+    .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+    /* Progress */
+    .progress{padding:28px 0 8px}
+    .steps-bar{display:flex;gap:8px;list-style:none;padding:0;margin:0}
+    .steps-bar li{flex:1;display:flex;flex-direction:column;gap:.5rem}
+    .steps-bar .bar{height:6px;border-radius:999px;background:var(--line)}
+    .steps-bar li.done .bar,.steps-bar li.active .bar{background:var(--primary)}
+    .steps-bar .lbl{font-size:.78rem;font-weight:600;color:var(--ink-soft)}
+    .steps-bar li.active .lbl,.steps-bar li.done .lbl{color:var(--primary)}
+    @media (max-width:560px){.steps-bar .lbl{display:none}}
+
+    /* Step panels */
+    main{padding:16px 0 40px}
+    .step-panel{display:none;animation:fade .3s ease}
+    .step-panel.active{display:block}
+    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.step-panel.active{animation:none}}
+    .step-head{margin:14px 0 22px}
+    .step-head h1{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.01em}
+    .step-head p{color:var(--ink-soft);margin-top:.5rem}
+
+    fieldset{border:0;padding:0;margin:0 0 26px}
+    legend{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.9rem;padding:0}
+    legend .hint{font-weight:400;color:var(--ink-soft)}
+
+    /* Tier + option cards (radio) */
+    .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:600px){.opt-grid{grid-template-columns:1fr}}
+    .opt{position:relative;display:flex;gap:.85rem;align-items:flex-start;border:1.5px solid var(--line);
+      border-radius:var(--radius);padding:16px 16px;cursor:pointer;background:var(--surface);transition:border-color .15s,box-shadow .15s}
+    .opt:hover{border-color:color-mix(in srgb,var(--primary) 45%,var(--line))}
+    .opt input{position:absolute;opacity:0;pointer-events:none}
+    .opt .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:0 0 auto;margin-top:2px;
+      display:flex;align-items:center;justify-content:center;transition:border-color .15s}
+    .opt .dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--primary);transform:scale(0);transition:transform .15s}
+    .opt input:checked ~ .dot{border-color:var(--primary)}
+    .opt input:checked ~ .dot::after{transform:scale(1)}
+    .opt:has(input:checked){border-color:var(--primary);box-shadow:var(--shadow-sm)}
+    .opt input:focus-visible ~ .dot{outline:2px solid var(--primary);outline-offset:3px}
+    .opt .ttl{font-weight:600;display:block}
+    .opt .sub{font-size:.88rem;color:var(--ink-soft);margin-top:.15rem;display:block}
+    .opt .price{margin-left:auto;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .opt .price small{display:block;font-weight:500;font-size:.75rem;color:var(--ink-soft);text-align:right}
+
+    /* Checkboxes */
+    .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:600px){.check-grid{grid-template-columns:1fr}}
+    .check{display:flex;align-items:center;gap:.75rem;border:1.5px solid var(--line);border-radius:var(--radius-sm);
+      padding:12px 14px;cursor:pointer;background:var(--surface)}
+    .check:hover{border-color:color-mix(in srgb,var(--primary) 45%,var(--line))}
+    .check input{width:20px;height:20px;accent-color:var(--primary);flex:0 0 auto}
+    .check .cl{font-size:.95rem}
+    .check .cp{margin-left:auto;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+    .check:has(input:checked){border-color:var(--primary);background:var(--primary-tint)}
+
+    /* Steppers */
+    .stepper-row{display:flex;align-items:center;gap:14px;padding:12px 4px;border-bottom:1px solid var(--line)}
+    .stepper-row .info{flex:1}
+    .stepper-row .info .n{font-weight:600;font-size:.96rem}
+    .stepper-row .info .p{font-size:.84rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+    .stepper{display:flex;align-items:center;gap:2px;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+    .stepper button{width:36px;height:36px;border:0;background:var(--surface);color:var(--ink);font-size:1.2rem;
+      cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+    .stepper button:hover{background:var(--primary-tint);color:var(--primary)}
+    .stepper button:disabled{opacity:.35;cursor:not-allowed}
+    .stepper .val{min-width:30px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+
+    /* Select + inputs */
+    .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:16px}
+    .field label{font-size:.85rem;font-weight:600}
+    .field .opt-tag{font-weight:400;color:var(--ink-soft)}
+    input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
+      font-family:var(--sans);font-size:1rem;color:var(--ink);background:var(--surface);
+      border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:.7rem .8rem;width:100%}
+    textarea{resize:vertical;min-height:80px}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--primary);outline-offset:1px;border-color:transparent}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:560px){.two{grid-template-columns:1fr}}
+
+    /* Price breakdown (step 3) */
+    .quote{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow-md);padding:24px;max-width:520px}
+    .quote .ln{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;font-size:.98rem}
+    .quote .ln.muted{color:var(--ink-soft)}
+    .quote .ln.discount{color:var(--primary)}
+    .quote .sep{border-top:1px solid var(--line);margin:.4rem 0}
+    .quote .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:.6rem;
+      padding-top:.9rem;border-top:2px solid var(--ink)}
+    .quote .total .t-lbl{font-weight:700}
+    .quote .total .t-val{font-family:var(--serif);font-size:2.1rem;font-weight:600;font-variant-numeric:tabular-nums}
+    .quote .total .t-sub{font-size:.8rem;color:var(--ink-soft);font-weight:500}
+    .quote .num{font-variant-numeric:tabular-nums}
+    .duration{margin-top:14px;font-size:.9rem;color:var(--ink-soft);display:flex;gap:.5rem;align-items:flex-start;max-width:520px}
+    .duration svg{color:var(--primary);flex:0 0 auto;margin-top:2px}
+
+    .freq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:6px}
+    @media (max-width:560px){.freq-grid{grid-template-columns:1fr 1fr}}
+    .freq{border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:12px 10px;text-align:center;
+      cursor:pointer;background:var(--surface);position:relative}
+    .freq input{position:absolute;opacity:0;pointer-events:none}
+    .freq .fn{font-weight:600;font-size:.92rem;display:block}
+    .freq .fs{font-size:.78rem;color:var(--primary);font-weight:600;margin-top:.2rem;min-height:1em;display:block}
+    .freq:has(input:checked){border-color:var(--primary);background:var(--primary-tint)}
+    .freq:hover{border-color:color-mix(in srgb,var(--primary) 45%,var(--line))}
+
+    /* Sticky total bar */
+    .totalbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
+      border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(16,60,48,.08)}
+    .totalbar-inner{max-width:var(--maxw);margin:0 auto;padding:12px 20px;display:flex;align-items:center;
+      justify-content:space-between;gap:14px}
+    .tb-price .tb-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);font-weight:700}
+    .tb-price .tb-val{font-family:var(--serif);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
+    .tb-price .tb-val small{font-family:var(--sans);font-size:.72rem;color:var(--ink-soft);font-weight:500}
+    .tb-actions{display:flex;gap:10px}
+    @media (max-width:560px){
+      .tb-actions .btn{padding:.7rem 1rem}
+      .tb-price .tb-val{font-size:1.25rem}
+    }
+
+    /* Confirmation */
+    .done-screen{display:none;text-align:center;padding:40px 10px;max-width:560px;margin:0 auto}
+    .done-screen.show{display:block}
+    .done-screen .ic{width:74px;height:74px;border-radius:50%;background:var(--primary-tint);color:var(--primary);
+      display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem}
+    .done-screen h1{font-size:1.9rem;margin-bottom:.6rem}
+    .done-screen p{color:var(--ink-soft);margin-bottom:1rem}
+    .done-summary{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      padding:20px;margin:20px 0}
+    .done-summary .ln{display:flex;justify-content:space-between;gap:1rem;padding:.35rem 0;font-size:.95rem}
+    .done-summary .ln b{font-variant-numeric:tabular-nums}
+    .flow.hide{display:none}
+    .err{color:#B24B3B;font-size:.85rem;margin-top:.5rem;display:none}
+    .err.show{display:block}
+    .sr-note{background:var(--surface-mint);border-radius:var(--radius-sm);padding:12px 14px;font-size:.9rem;
+      color:var(--ink);display:flex;gap:.6rem;align-items:flex-start;margin-bottom:20px}
+    .sr-note svg{color:var(--primary);flex:0 0 auto;margin-top:2px}
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap navbar">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" fill="var(--primary)"/>
+          <path d="M9 16.5l4.2 4.2L23 11" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Tidely
+      </a>
+      <a class="backlink" href="index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to home
+      </a>
+    </div>
+  </header>
+
+  <div class="flow" id="flow">
+    <div class="wrap progress">
+      <ol class="steps-bar" id="stepsBar">
+        <li data-step="1"><span class="bar"></span><span class="lbl">1 · Your home</span></li>
+        <li data-step="2"><span class="bar"></span><span class="lbl">2 · Extras</span></li>
+        <li data-step="3"><span class="bar"></span><span class="lbl">3 · Your price</span></li>
+        <li data-step="4"><span class="bar"></span><span class="lbl">4 · Time &amp; confirm</span></li>
+      </ol>
+    </div>
+
+    <main class="wrap">
+      <form id="bookingForm" name="booking-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="booking-request">
+        <p style="display:none"><label>Skip: <input name="bot-field"></label></p>
+        <!-- Hidden fields populated by JS so the full booking (with price) is captured on submit -->
+        <input type="hidden" name="tier" id="h_tier">
+        <input type="hidden" name="clean_type" id="h_cleantype">
+        <input type="hidden" name="add_ons" id="h_addons">
+        <input type="hidden" name="frequency" id="h_frequency">
+        <input type="hidden" name="price_services" id="h_services">
+        <input type="hidden" name="price_discount" id="h_discount">
+        <input type="hidden" name="price_hst" id="h_hst">
+        <input type="hidden" name="price_total" id="h_total">
+
+        <!-- STEP 1 -->
+        <section class="step-panel active" data-panel="1" aria-labelledby="s1h">
+          <div class="step-head"><span class="eyebrow">Step 1 of 4</span><h1 id="s1h">Tell us about your home</h1><p>Pick the standard-clean tier that matches your place. Prices shown are before 13% HST.</p></div>
+          <fieldset>
+            <legend>Home size <span class="hint">— based on bedrooms &amp; bathrooms</span></legend>
+            <div class="opt-grid" id="tierGrid">
+              <!-- tiers injected by JS -->
+            </div>
+            <p class="err" id="tierErr">Please choose a home size to continue.</p>
+          </fieldset>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="step-panel" data-panel="2" aria-labelledby="s2h">
+          <div class="step-head"><span class="eyebrow">Step 2 of 4</span><h1 id="s2h">Add any extras</h1><p>Everything here has a clear price — so your total stays honest, with no surprises.</p></div>
+
+          <fieldset>
+            <legend>Type of clean</legend>
+            <div class="opt-grid" id="cleanTypeGrid"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Extra rooms <span class="hint">— add as many as you need</span></legend>
+            <div id="roomSteppers"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Inside jobs</legend>
+            <div class="check-grid" id="insideGrid"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Pet hair</legend>
+            <div class="field" style="max-width:340px;margin:0">
+              <select id="petHair" aria-label="Pet hair level">
+                <option value="0">None</option>
+                <option value="35">Light — +$35</option>
+                <option value="45">Moderate — +$45</option>
+                <option value="55">Heavy — +$55</option>
+              </select>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="step-panel" data-panel="3" aria-labelledby="s3h">
+          <div class="step-head"><span class="eyebrow">Step 3 of 4</span><h1 id="s3h">Your fixed price</h1><p>This is the whole price — HST included. No quotes, no hidden fees, no upsell at the door.</p></div>
+
+          <fieldset>
+            <legend>Make it recurring &amp; save <span class="hint">— same trusted cleaner, less each time</span></legend>
+            <div class="freq-grid" id="freqGrid"></div>
+          </fieldset>
+
+          <div class="quote" id="quoteBox"><!-- breakdown injected by JS --></div>
+          <div class="duration">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="durationNote"></span>
+          </div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section class="step-panel" data-panel="4" aria-labelledby="s4h">
+          <div class="step-head"><span class="eyebrow">Step 4 of 4</span><h1 id="s4h">Pick a time &amp; confirm</h1><p>Choose when works for you and how to reach you. We'll match you with a vetted, insured cleaner and confirm.</p></div>
+
+          <div class="sr-note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 11-3.5-2.5-7-6-7-11V5l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <span>This sends us a booking request — you're not charged now. We confirm your cleaner and time first.</span>
+          </div>
+
+          <fieldset>
+            <legend>When would you like your clean?</legend>
+            <div class="two">
+              <div class="field"><label for="date">Preferred date</label><input type="date" id="date" name="preferred_date" required></div>
+              <div class="field"><label for="timewin">Time window</label>
+                <select id="timewin" name="time_window">
+                  <option value="Morning (8am–11am)">Morning (8am–11am)</option>
+                  <option value="Midday (11am–2pm)">Midday (11am–2pm)</option>
+                  <option value="Afternoon (2pm–5pm)">Afternoon (2pm–5pm)</option>
+                  <option value="Evening (5pm–8pm)">Evening (5pm–8pm)</option>
+                  <option value="I'm flexible">I'm flexible</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Your details</legend>
+            <div class="two">
+              <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+            </div>
+            <div class="two">
+              <div class="field"><label for="phone">Phone <span class="opt-tag">(so your cleaner can reach you)</span></label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
+              <div class="field"><label for="postal">Postal code</label><input type="text" id="postal" name="postal_code" autocomplete="postal-code" placeholder="N2L 3G1"></div>
+            </div>
+            <div class="field"><label for="address">Address <span class="opt-tag">(street &amp; city in Waterloo Region)</span></label><input type="text" id="address" name="address" autocomplete="street-address" placeholder="123 King St, Kitchener"></div>
+            <div class="field"><label for="notes">Anything we should know? <span class="opt-tag">(optional — parking, pets, entry, focus areas)</span></label><textarea id="notes" name="notes"></textarea></div>
+            <p class="err" id="contactErr">Please add your name, email, and a preferred date.</p>
+          </fieldset>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <!-- Confirmation screen -->
+  <div class="done-screen wrap" id="doneScreen" aria-live="polite">
+    <div class="ic"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1>Booking request received!</h1>
+    <p>Thanks — we've got your request. We'll match you with a vetted, insured cleaner and email you to confirm your time. You won't be charged until your booking is confirmed.</p>
+    <div class="done-summary" id="doneSummary"></div>
+    <a class="btn btn-primary" href="index.html">Back to home</a>
+  </div>
+
+  <!-- Sticky total bar -->
+  <div class="totalbar" id="totalBar">
+    <div class="totalbar-inner">
+      <div class="tb-price">
+        <div class="tb-lbl">Estimated total</div>
+        <div class="tb-val tnum" id="tbVal">$0<small> incl. HST</small></div>
+      </div>
+      <div class="tb-actions">
+        <button type="button" class="btn btn-ghost" id="backBtn" style="display:none">Back</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    var HST = 0.13;
+    var TIERS = [
+      {id:'Tier 1 · Compact', cfg:'1 bed · 1 bath, plus living, kitchen & dining', price:149, hours:2.75},
+      {id:'Tier 2', cfg:'2 bed · 1 bath, plus living, kitchen & dining', price:189, hours:3.5},
+      {id:'Tier 3', cfg:'2 bed · 2 bath, plus living, kitchen & dining', price:219, hours:4.5},
+      {id:'Tier 4', cfg:'3 bed · 1 bath, plus living, kitchen & dining', price:239, hours:5},
+      {id:'Tier 5', cfg:'3 bed · 2 bath, plus living, kitchen & dining', price:279, hours:6}
+    ];
+    var CLEAN_TYPES = [
+      {id:'standard', label:'Standard clean', sub:'Our thorough everyday clean', pct:0},
+      {id:'deep', label:'Deep clean', sub:'Extra detail throughout', pct:0.5},
+      {id:'move', label:'Move-in / move-out', sub:'Empty-home turnover clean', pct:0.7}
+    ];
+    var ROOMS = [
+      {id:'bedroom', label:'Additional bedroom or office', price:25, max:5},
+      {id:'washroom', label:'Additional full washroom', price:40, max:4},
+      {id:'powder', label:'Powder room', price:20, max:3},
+      {id:'living', label:'Additional living room', price:30, max:3},
+      {id:'kitchen', label:'Additional kitchen', price:45, max:2},
+      {id:'basement', label:'Finished basement common area', price:45, max:1}
+    ];
+    var INSIDE = [
+      {id:'fridge', label:'Inside the fridge', price:30},
+      {id:'oven', label:'Inside the oven', price:35},
+      {id:'windows', label:'Interior windows (up to 5)', price:45},
+      {id:'baseboards', label:'Baseboard detail', price:50}
+    ];
+    var FREQS = [
+      {id:'One-time', label:'One-time', disc:0, note:''},
+      {id:'Monthly', label:'Monthly', disc:0.05, note:'save 5%'},
+      {id:'Every 2 weeks', label:'Bi-weekly', disc:0.10, note:'save 10%'},
+      {id:'Weekly', label:'Weekly', disc:0.15, note:'save 15%'}
+    ];
+
+    var state = {tier:null, cleanType:'standard', rooms:{}, inside:{}, petHair:0, freq:0};
+    var current = 1, MAX = 4;
+    var $ = function(s,r){return (r||document).querySelector(s)};
+    var money = function(n){return '$'+n.toFixed(2)};
+    var money0 = function(n){return '$'+Math.round(n)};
+
+    // ---------- Build Step 1: tiers ----------
+    var tierGrid = $('#tierGrid');
+    TIERS.forEach(function(t,i){
+      var lab=document.createElement('label'); lab.className='opt';
+      lab.innerHTML='<input type="radio" name="tier_choice" value="'+i+'">'
+        +'<span class="dot" aria-hidden="true"></span>'
+        +'<span><span class="ttl">'+t.id+'</span><span class="sub">'+t.cfg+'</span></span>'
+        +'<span class="price">'+money0(t.price)+'<small>+HST</small></span>';
+      tierGrid.appendChild(lab);
+      lab.querySelector('input').addEventListener('change',function(){ state.tier=i; $('#tierErr').classList.remove('show'); recalc(); });
+    });
+
+    // ---------- Build Step 2 ----------
+    var ctGrid=$('#cleanTypeGrid');
+    CLEAN_TYPES.forEach(function(c,i){
+      var lab=document.createElement('label'); lab.className='opt';
+      var priceLabel = c.pct? '+'+(c.pct*100)+'%' : 'included';
+      lab.innerHTML='<input type="radio" name="clean_type_choice" value="'+c.id+'"'+(i===0?' checked':'')+'>'
+        +'<span class="dot" aria-hidden="true"></span>'
+        +'<span><span class="ttl">'+c.label+'</span><span class="sub">'+c.sub+'</span></span>'
+        +'<span class="price">'+priceLabel+'</span>';
+      ctGrid.appendChild(lab);
+      lab.querySelector('input').addEventListener('change',function(){ state.cleanType=c.id; recalc(); });
+    });
+
+    var roomWrap=$('#roomSteppers');
+    ROOMS.forEach(function(r){
+      state.rooms[r.id]=0;
+      var row=document.createElement('div'); row.className='stepper-row';
+      row.innerHTML='<div class="info"><div class="n">'+r.label+'</div><div class="p">+'+money0(r.price)+' each</div></div>'
+        +'<div class="stepper"><button type="button" aria-label="Remove one '+r.label+'" data-act="dec">−</button>'
+        +'<span class="val" id="val_'+r.id+'">0</span>'
+        +'<button type="button" aria-label="Add one '+r.label+'" data-act="inc">+</button></div>';
+      roomWrap.appendChild(row);
+      var dec=row.querySelector('[data-act=dec]'), inc=row.querySelector('[data-act=inc]'), val=$('#val_'+r.id);
+      function upd(){ val.textContent=state.rooms[r.id]; dec.disabled=state.rooms[r.id]<=0; inc.disabled=state.rooms[r.id]>=r.max; recalc(); }
+      dec.addEventListener('click',function(){ if(state.rooms[r.id]>0){state.rooms[r.id]--; upd();} });
+      inc.addEventListener('click',function(){ if(state.rooms[r.id]<r.max){state.rooms[r.id]++; upd();} });
+      upd();
+    });
+
+    var insideGrid=$('#insideGrid');
+    INSIDE.forEach(function(a){
+      state.inside[a.id]=false;
+      var lab=document.createElement('label'); lab.className='check';
+      lab.innerHTML='<input type="checkbox" value="'+a.id+'"><span class="cl">'+a.label+'</span><span class="cp">+'+money0(a.price)+'</span>';
+      insideGrid.appendChild(lab);
+      lab.querySelector('input').addEventListener('change',function(e){ state.inside[a.id]=e.target.checked; recalc(); });
+    });
+
+    $('#petHair').addEventListener('change',function(e){ state.petHair=parseFloat(e.target.value)||0; recalc(); });
+
+    // ---------- Build Step 3: frequency ----------
+    var freqGrid=$('#freqGrid');
+    FREQS.forEach(function(f,i){
+      var lab=document.createElement('label'); lab.className='freq';
+      lab.innerHTML='<input type="radio" name="freq_choice" value="'+i+'"'+(i===0?' checked':'')+'>'
+        +'<span class="fn">'+f.label+'</span><span class="fs">'+(f.note||'&nbsp;')+'</span>';
+      freqGrid.appendChild(lab);
+      lab.querySelector('input').addEventListener('change',function(){ state.freq=i; recalc(); });
+    });
+
+    // ---------- Pricing ----------
+    function compute(){
+      if(state.tier===null) return {services:0, discount:0, hst:0, total:0, base:0, lines:[]};
+      var t=TIERS[state.tier];
+      var lines=[];
+      var base=t.price;
+      lines.push({label:t.id+' base clean', amt:base});
+      var ct=CLEAN_TYPES.filter(function(c){return c.id===state.cleanType})[0];
+      if(ct && ct.pct>0){ var add=base*ct.pct; lines.push({label:ct.label+' upgrade (+'+(ct.pct*100)+'%)', amt:add}); }
+      ROOMS.forEach(function(r){ var q=state.rooms[r.id]; if(q>0){ lines.push({label:r.label+' × '+q, amt:r.price*q}); } });
+      INSIDE.forEach(function(a){ if(state.inside[a.id]){ lines.push({label:a.label, amt:a.price}); } });
+      if(state.petHair>0){ lines.push({label:'Pet hair', amt:state.petHair}); }
+      var services=lines.reduce(function(s,l){return s+l.amt},0);
+      var f=FREQS[state.freq];
+      var discount=services*f.disc;
+      var afterDisc=services-discount;
+      var hst=afterDisc*HST;
+      var total=afterDisc+hst;
+      return {services:services, discount:discount, hst:hst, total:total, afterDisc:afterDisc, lines:lines, freq:f, tier:t};
+    }
+
+    function recalc(){
+      var c=compute();
+      // sticky bar
+      $('#tbVal').innerHTML = (state.tier===null? '$0':money0(c.total))+'<small> incl. HST</small>';
+      // step 3 breakdown
+      if(state.tier!==null){
+        var html='';
+        c.lines.forEach(function(l){ html+='<div class="ln"><span>'+l.label+'</span><span class="num">'+money(l.amt)+'</span></div>'; });
+        html+='<div class="sep"></div>';
+        html+='<div class="ln muted"><span>Subtotal</span><span class="num">'+money(c.services)+'</span></div>';
+        if(c.discount>0){ html+='<div class="ln discount"><span>'+c.freq.label+' discount ('+(c.freq.disc*100)+'%)</span><span class="num">−'+money(c.discount)+'</span></div>'; }
+        html+='<div class="ln muted"><span>HST (13%)</span><span class="num">'+money(c.hst)+'</span></div>';
+        html+='<div class="total"><span class="t-lbl">Total'+(c.discount>0?' per clean':'')+'</span><span><span class="t-val">'+money(c.total)+'</span> <span class="t-sub">all in</span></span></div>';
+        $('#quoteBox').innerHTML=html;
+        var lo=Math.round(c.tier.hours*10)/10, halfLo=Math.round(c.tier.hours/2*10)/10;
+        $('#durationNote').innerHTML='A clean like this is about <b>'+lo+' labour-hours</b> — roughly '+lo+' hours with one cleaner, or about '+halfLo+' hours if we send a two-person team for larger homes.';
+      }
+      // hidden fields for submission
+      $('#h_tier').value = state.tier!==null? c.tier.id : '';
+      $('#h_cleantype').value = CLEAN_TYPES.filter(function(x){return x.id===state.cleanType})[0].label;
+      var addonSummary=[];
+      ROOMS.forEach(function(r){ if(state.rooms[r.id]>0) addonSummary.push(r.label+' ×'+state.rooms[r.id]); });
+      INSIDE.forEach(function(a){ if(state.inside[a.id]) addonSummary.push(a.label); });
+      if(state.petHair>0) addonSummary.push('Pet hair (+$'+state.petHair+')');
+      $('#h_addons').value = addonSummary.join('; ') || 'None';
+      $('#h_frequency').value = c.freq? c.freq.id : 'One-time';
+      $('#h_services').value = c.services.toFixed(2);
+      $('#h_discount').value = c.discount.toFixed(2);
+      $('#h_hst').value = c.hst.toFixed(2);
+      $('#h_total').value = c.total.toFixed(2);
+    }
+
+    // ---------- Navigation ----------
+    function showStep(n){
+      current=n;
+      document.querySelectorAll('.step-panel').forEach(function(p){ p.classList.toggle('active', +p.dataset.panel===n); });
+      document.querySelectorAll('#stepsBar li').forEach(function(li){
+        var s=+li.dataset.step; li.classList.toggle('active', s===n); li.classList.toggle('done', s<n);
+      });
+      $('#backBtn').style.display = n>1? 'inline-flex':'none';
+      $('#nextBtn').textContent = n===MAX? 'Submit booking request' : (n===3? 'Continue to booking' : 'Continue');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    function validateStep(n){
+      if(n===1 && state.tier===null){ $('#tierErr').classList.add('show'); return false; }
+      if(n===4){
+        var ok = $('#name').value.trim() && $('#email').value.trim() && $('#date').value;
+        $('#contactErr').classList.toggle('show', !ok);
+        if(!ok){ (!$('#name').value.trim()?$('#name'):(!$('#email').value.trim()?$('#email'):$('#date'))).focus(); }
+        return !!ok;
+      }
+      return true;
+    }
+
+    $('#nextBtn').addEventListener('click',function(){
+      if(!validateStep(current)) return;
+      if(current<MAX){ showStep(current+1); }
+      else { submitBooking(); }
+    });
+    $('#backBtn').addEventListener('click',function(){ if(current>1) showStep(current-1); });
+
+    // ---------- Submit ----------
+    function encode(data){ return Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k])}).join('&'); }
+    function submitBooking(){
+      recalc();
+      var form=$('#bookingForm'); var fd=new FormData(form); var obj={};
+      fd.forEach(function(v,k){ obj[k]=v; });
+      try{ var key='tidely_bookings'; var arr=JSON.parse(localStorage.getItem(key)||'[]'); arr.push(Object.assign({at:new Date().toISOString()},obj)); localStorage.setItem(key,JSON.stringify(arr)); }catch(e){}
+      var btn=$('#nextBtn'); btn.disabled=true; btn.textContent='Sending…';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:encode(obj)})
+        .catch(function(){/* preview/local: still confirm */})
+        .finally(function(){ showConfirmation(obj); });
+    }
+    function showConfirmation(obj){
+      $('#flow').classList.add('hide');
+      $('#totalBar').style.display='none';
+      var s=$('#doneSummary');
+      s.innerHTML =
+        '<div class="ln"><span>Home</span><b>'+obj.tier+'</b></div>'+
+        '<div class="ln"><span>Clean type</span><b>'+obj.clean_type+'</b></div>'+
+        '<div class="ln"><span>Add-ons</span><b>'+obj.add_ons+'</b></div>'+
+        '<div class="ln"><span>Frequency</span><b>'+obj.frequency+'</b></div>'+
+        '<div class="ln"><span>Preferred date</span><b>'+(obj.preferred_date||'—')+', '+(obj.time_window||'')+'</b></div>'+
+        '<div class="ln" style="border-top:1px solid var(--line);margin-top:.4rem;padding-top:.7rem"><span><b>Total (incl. HST)</b></span><b>$'+obj.price_total+'</b></div>';
+      $('#doneScreen').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    // set date min = today
+    (function(){ var d=new Date(); var iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); $('#date').min=iso; })();
+
+    recalc();
+    showStep(1);
+  })();
+  </script>
+</body>
+</html>

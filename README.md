@@ -16,11 +16,13 @@ this, at these prices, in this area?*
 
 | File | What it is |
 |------|------------|
-| `index.html` | The entire landing page — one self-contained file. Open it in any browser to see it. |
+| `index.html` | The **landing page** — the trust story, pricing, and waitlist signup. |
+| `book.html` | The **4-step booking flow** — customers choose their home, add extras, see their exact fixed price (with HST), and request a time. |
 | `netlify.toml` | A tiny settings file that makes putting the site online effortless. |
 | `README.md` | This guide. |
 
-That's it. One page, no complicated setup.
+Both pages are self-contained — open either one in any browser to see it. The landing
+page links to the booking page ("Book a clean").
 
 ---
 
@@ -60,9 +62,13 @@ goes live on its own. I can walk you through this whenever you're ready.
 Once the site is live **on Netlify**, form signups are captured automatically — **no code,
 no database to manage.**
 
-- In your Netlify dashboard, open **Forms**. You'll see two lists:
+- In your Netlify dashboard, open **Forms**. You'll see these lists:
   - **customer-waitlist** — people who want their home cleaned
   - **provider-waitlist** — cleaners who want to work with us
+  - **booking-request** — full booking requests from the booking page, including the
+    chosen tier, add-ons, frequency, preferred date/time, contact details, and the exact
+    calculated total. This is your "manual-first" work queue: you receive the request,
+    then match a vetted cleaner and confirm.
 - Turn on **email notifications** (Netlify → Site settings → Forms → Notifications) so a new
   signup lands in your inbox the moment it happens.
 - You can export any list to a spreadsheet with one click.
@@ -98,10 +104,11 @@ blocked on naming. When you decide on a real name and brand, renaming takes minu
 
 ## 🧭 What comes next (when you're ready)
 
-This landing page is step one. Based on what your business plan lays out, the natural next
-pieces — each only worth building once this page proves interest — are:
+We now have the landing page **and** the booking flow. Based on what your business plan
+lays out, the natural next pieces — each only worth building once there's real interest —
+are:
 
-1. **The 4-step booking flow** (home details → add-ons → fixed price → pick a time).
+1. ~~The 4-step booking flow~~ ✅ **done** (`book.html`).
 2. **A simple admin dashboard** to see and manage bookings (your digital "spreadsheet").
 3. **Provider onboarding & vetting** tools.
 4. **Online card payments** (Stripe), recurring plans, and the $20 referral credit.
