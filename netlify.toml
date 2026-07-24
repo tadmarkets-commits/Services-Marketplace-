@@ -1,0 +1,7 @@
+# Netlify deployment settings for the Tidely landing page.
+# This tells Netlify to publish the site straight from the project root —
+# no build step, because the page is a single static HTML file.
+
+[build]
+  publish = "."
+  command = ""

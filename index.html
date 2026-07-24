@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tidely — Fixed-price home cleaning you can trust | Waterloo Region</title>
+  <meta name="description" content="Tidely is a trust-based, fixed-price residential cleaning service for Waterloo Region. Vetted, insured cleaners, one clear price before you book, and a satisfaction guarantee. Join the waitlist.">
+  <meta name="theme-color" content="#1B5E4B">
+  <!-- Open Graph / social sharing -->
+  <meta property="og:title" content="Tidely — Fixed-price home cleaning you can trust">
+  <meta property="og:description" content="Vetted, insured cleaners. One clear price before you book. Backed by a satisfaction guarantee. Now launching in Waterloo Region.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231B5E4B'/%3E%3Cpath d='M9 16.5l4.2 4.2L23 11' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    /* Minimal reset (the standalone page needs what the artifact host normally provides) */
+    *{margin:0}
+    html{-webkit-text-size-adjust:100%}
+  </style>
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --paper:#F6F8F4;
+    --surface:#FFFFFF;
+    --surface-mint:#E7F1EA;
+    --surface-sand:#F2ECDF;
+    --ink:#152420;
+    --ink-soft:#4C5C55;
+    --line:#DDE5DE;
+    --primary:#1B5E4B;
+    --primary-deep:#103C30;
+    --primary-tint:#EAF3EE;
+    --accent:#C6873A;
+    --accent-soft:#F1E4CD;
+    --star:#D9A441;
+    --btn-bg:var(--primary);
+    --btn-text:#FFFFFF;
+    --shadow-sm:0 1px 2px rgba(16,60,48,.06),0 2px 8px rgba(16,60,48,.05);
+    --shadow-md:0 8px 30px rgba(16,60,48,.10),0 2px 8px rgba(16,60,48,.06);
+    --shadow-lg:0 24px 60px rgba(16,60,48,.16),0 6px 18px rgba(16,60,48,.08);
+    --radius:16px;
+    --radius-sm:10px;
+    --maxw:1120px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Charter",Georgia,Cambria,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0E1714; --surface:#15211C; --surface-mint:#152520; --surface-sand:#1C231F;
+      --ink:#EAF2EC; --ink-soft:#A6B7AF; --line:#273630;
+      --primary:#5CBE9B; --primary-deep:#8FD9BF; --primary-tint:#13241D;
+      --accent:#E0A551; --accent-soft:#2A2417; --star:#E5B45B;
+      --btn-bg:#5CBE9B; --btn-text:#0C1512;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+      --shadow-md:0 10px 34px rgba(0,0,0,.42);
+      --shadow-lg:0 28px 64px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#F6F8F4; --surface:#FFFFFF; --surface-mint:#E7F1EA; --surface-sand:#F2ECDF;
+    --ink:#152420; --ink-soft:#4C5C55; --line:#DDE5DE;
+    --primary:#1B5E4B; --primary-deep:#103C30; --primary-tint:#EAF3EE;
+    --accent:#C6873A; --accent-soft:#F1E4CD; --star:#D9A441;
+    --btn-bg:var(--primary); --btn-text:#FFFFFF;
+    --shadow-sm:0 1px 2px rgba(16,60,48,.06),0 2px 8px rgba(16,60,48,.05);
+    --shadow-md:0 8px 30px rgba(16,60,48,.10),0 2px 8px rgba(16,60,48,.06);
+    --shadow-lg:0 24px 60px rgba(16,60,48,.16),0 6px 18px rgba(16,60,48,.08);
+  }
+  :root[data-theme="dark"]{
+    --paper:#0E1714; --surface:#15211C; --surface-mint:#152520; --surface-sand:#1C231F;
+    --ink:#EAF2EC; --ink-soft:#A6B7AF; --line:#273630;
+    --primary:#5CBE9B; --primary-deep:#8FD9BF; --primary-tint:#13241D;
+    --accent:#E0A551; --accent-soft:#2A2417; --star:#E5B45B;
+    --btn-bg:#5CBE9B; --btn-text:#0C1512;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+    --shadow-md:0 10px 34px rgba(0,0,0,.42);
+    --shadow-lg:0 28px 64px rgba(0,0,0,.5);
+  }
+
+  /* ---------- Base ---------- */
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:inherit}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
+  .measure{max-width:62ch}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-size:1rem;
+    font-weight:600;border-radius:999px;padding:.85rem 1.5rem;border:1px solid transparent;
+    cursor:pointer;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+  .btn-primary{background:var(--btn-bg);color:var(--btn-text);box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+  .btn-lg{padding:1rem 1.8rem;font-size:1.05rem}
+
+  /* ---------- Header ---------- */
+  header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+    backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+  .navbar{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.35rem;font-weight:600;
+    color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand .mark{width:30px;height:30px;flex:0 0 auto}
+  .nav-links{display:flex;align-items:center;gap:1.6rem}
+  .nav-links a{font-size:.95rem;font-weight:500;color:var(--ink-soft);text-decoration:none}
+  .nav-links a:hover{color:var(--primary)}
+  .nav-cta{display:flex;align-items:center;gap:.9rem}
+  @media (max-width:820px){.nav-links{display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 70% at 78% 8%, color-mix(in srgb,var(--primary) 12%,transparent), transparent 70%),
+      radial-gradient(50% 60% at 12% 90%, color-mix(in srgb,var(--accent) 10%,transparent), transparent 70%)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+    padding:76px 0 84px}
+  .hero h1{font-size:clamp(2.5rem,5.2vw,4rem);letter-spacing:-.02em}
+  .hero .lede{margin-top:1.4rem;font-size:1.2rem;color:var(--ink-soft);max-width:34ch}
+  .hero-cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.9rem}
+  .hero-note{margin-top:1.1rem;font-size:.9rem;color:var(--ink-soft)}
+  .uline{position:relative;white-space:nowrap;color:var(--primary)}
+  .uline svg{position:absolute;left:0;right:0;bottom:-.32em;width:100%;height:.34em;color:var(--accent)}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;padding:52px 0 60px}
+    .hero .lede{max-width:52ch}
+  }
+
+  /* price card */
+  .pricecard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:22px;
+    box-shadow:var(--shadow-lg);padding:26px 26px 24px;animation:floaty 7s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){.pricecard{animation:none}}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  .pc-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .pc-config{margin-top:.5rem;font-size:1.05rem;font-weight:600}
+  .pc-price{display:flex;align-items:baseline;gap:.5rem;margin-top:.4rem}
+  .pc-price .big{font-family:var(--serif);font-size:3.2rem;font-weight:600;letter-spacing:-.02em}
+  .pc-price .hst{font-size:.92rem;color:var(--ink-soft)}
+  .pc-list{list-style:none;margin:1.1rem 0 0;padding:1.1rem 0 0;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:.7rem}
+  .pc-list li{display:flex;align-items:center;gap:.6rem;font-size:.96rem}
+  .pc-list svg{color:var(--primary);flex:0 0 auto}
+  .seal{position:absolute;top:-18px;right:22px}
+
+  /* trust strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+  .strip-inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;padding:20px 0}
+  .strip-item{display:flex;align-items:center;gap:.6rem;font-size:.95rem;font-weight:500;color:var(--ink)}
+  .strip-item svg{color:var(--primary);flex:0 0 auto}
+
+  /* ---------- Sections ---------- */
+  section{padding:84px 0}
+  .sec-mint{background:var(--surface-mint)}
+  .sec-sand{background:var(--surface-sand)}
+  .sec-surface{background:var(--surface)}
+  .sec-head{max-width:60ch}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.015em;margin-top:.6rem}
+  .sec-head p{margin-top:1rem;font-size:1.12rem;color:var(--ink-soft)}
+
+  /* problem -> promise */
+  .swap{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+  .swap-col h3{font-size:1.15rem;margin-bottom:1rem}
+  .swap-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem}
+  .swap-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:1rem;color:var(--ink-soft)}
+  .swap-list.good li{color:var(--ink)}
+  .swap-list svg{flex:0 0 auto;margin-top:.15rem}
+  .swap .old svg{color:#B24B3B}
+  .swap .new svg{color:var(--primary)}
+  .swap-col{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  @media (max-width:760px){.swap{grid-template-columns:1fr}}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px;counter-reset:step}
+  .step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 22px}
+  .step .num{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--accent);
+    display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;
+    border:1.5px solid var(--accent-soft);background:var(--accent-soft)}
+  .step h3{font-size:1.12rem;margin:1rem 0 .5rem}
+  .step p{font-size:.95rem;color:var(--ink-soft)}
+  @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+  /* tiers */
+  .tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+  .tier{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;
+    display:flex;flex-direction:column;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  .tier:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--primary) 40%,var(--line))}
+  .tier.feature{border-color:var(--primary);box-shadow:var(--shadow-md)}
+  .tier .tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--primary)}
+  .tier .cfg{font-size:.9rem;color:var(--ink-soft);margin:.5rem 0 1rem;min-height:2.4em}
+  .tier .amt{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:-.01em}
+  .tier .amt small{font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--ink-soft)}
+  .tier .hst{font-size:.82rem;color:var(--ink-soft);margin-top:.15rem}
+  .tier .pill{margin-top:auto;align-self:flex-start;margin-top:14px;font-size:.72rem;font-weight:600;
+    background:var(--primary-tint);color:var(--primary-deep);border-radius:999px;padding:.3rem .7rem}
+  .tier-note{margin-top:22px;font-size:.98rem;color:var(--ink-soft);max-width:60ch}
+  .tier-note b{color:var(--ink);font-weight:600}
+  @media (max-width:960px){.tiers{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.tiers{grid-template-columns:1fr}}
+
+  /* included */
+  .incl{display:grid;grid-template-columns:1.3fr .9fr;gap:26px;margin-top:44px}
+  .incl-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .incl-card h3{font-size:1.1rem;margin-bottom:1.1rem;display:flex;align-items:center;gap:.55rem}
+  .incl-card h3 svg{color:var(--primary)}
+  .incl-card.out h3 svg{color:var(--ink-soft)}
+  .incl-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.4rem}
+  .incl-card.out .incl-list{grid-template-columns:1fr}
+  .incl-list li{display:flex;gap:.55rem;align-items:flex-start;font-size:.95rem;color:var(--ink-soft)}
+  .incl-list li b{color:var(--ink);font-weight:600}
+  .incl-list svg{flex:0 0 auto;margin-top:.2rem;color:var(--primary)}
+  .incl-card.out .incl-list svg{color:var(--ink-soft)}
+  @media (max-width:820px){.incl{grid-template-columns:1fr}.incl-list{grid-template-columns:1fr}}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .pillar{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .pillar .ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:var(--primary-tint);color:var(--primary);margin-bottom:1.1rem}
+  .pillar h3{font-size:1.18rem;margin-bottom:.55rem}
+  .pillar p{font-size:.97rem;color:var(--ink-soft)}
+  @media (max-width:820px){.pillars{grid-template-columns:1fr}}
+
+  /* forms */
+  .signup{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px;align-items:start}
+  .form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px;box-shadow:var(--shadow-sm)}
+  .form-card.provider{background:var(--surface-sand)}
+  .form-card h3{font-size:1.3rem;margin-bottom:.4rem}
+  .form-card .sub{font-size:.98rem;color:var(--ink-soft);margin-bottom:1.4rem}
+  .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.95rem}
+  .field label{font-size:.82rem;font-weight:600;color:var(--ink)}
+  .field label .opt{font-weight:400;color:var(--ink-soft)}
+  .field input,.field select{font-family:var(--sans);font-size:1rem;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);border-radius:var(--radius-sm);padding:.7rem .8rem;width:100%}
+  .field input:focus,.field select:focus{outline:2px solid var(--primary);outline-offset:1px;border-color:transparent}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:.95rem}
+  .form-card .btn-primary{width:100%;justify-content:center;margin-top:.4rem}
+  .fineprint{font-size:.82rem;color:var(--ink-soft);margin-top:.9rem;text-align:center}
+  .thanks{display:none;text-align:center;padding:24px 8px}
+  .thanks .ic{width:60px;height:60px;border-radius:50%;background:var(--primary-tint);color:var(--primary);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+  .thanks h3{font-size:1.4rem;margin-bottom:.5rem}
+  .thanks p{color:var(--ink-soft)}
+  form.sent{display:none}
+  form.sent + .thanks{display:block}
+  @media (max-width:820px){.signup{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+  /* faq */
+  .faq{margin-top:40px;max-width:760px}
+  details{border-bottom:1px solid var(--line);padding:4px 0}
+  summary{cursor:pointer;list-style:none;padding:18px 2px;font-size:1.08rem;font-weight:600;
+    display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  summary::-webkit-details-marker{display:none}
+  summary .chev{transition:transform .2s ease;color:var(--primary);flex:0 0 auto}
+  details[open] summary .chev{transform:rotate(180deg)}
+  details p{padding:0 2px 20px;color:var(--ink-soft);font-size:1rem;max-width:65ch}
+
+  /* footer */
+  footer.site{background:var(--primary-deep);color:#EAF3EE;padding:56px 0 34px}
+  :root[data-theme="dark"] footer.site,
+  @media (prefers-color-scheme:dark){}
+  footer.site{--fg:#EAF3EE}
+  .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px}
+  .foot-brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.4rem;color:#fff}
+  .foot-brand .mark{width:30px;height:30px}
+  .foot-col h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#9FC4B4;margin:0 0 .8rem}
+  .foot-col a,.foot-col p{display:block;color:#D7E7DF;text-decoration:none;font-size:.95rem;margin-bottom:.5rem}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.85rem;color:#9FC4B4}
+  .placeholder-flag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);
+    border-radius:999px;padding:.25rem .7rem;font-size:.8rem;color:#EAF3EE}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap navbar">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" fill="var(--primary)"/>
+        <path d="M9 16.5l4.2 4.2L23 11" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="24.2" cy="8.6" r="1.5" fill="var(--star)"/>
+      </svg>
+      Tidely
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#included">What's included</a>
+      <a href="#trust">Our guarantee</a>
+      <a href="#cleaners">For cleaners</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<main>
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal in">
+        <span class="eyebrow">Now launching in Waterloo Region</span>
+        <h1>A clean home, without the <span class="uline">guesswork
+          <svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 40 2, 90 2, 128 6 S 180 10, 198 4" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+        </span>.</h1>
+        <p class="lede">Fixed-price home cleaning by vetted, insured cleaners. One clear price before you book — backed by a satisfaction guarantee.</p>
+        <div class="hero-cta">
+          <a href="#waitlist" class="btn btn-primary btn-lg">Join the waitlist</a>
+          <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
+        </div>
+        <p class="hero-note">Free to join · Be first to book when we launch · No spam, ever</p>
+      </div>
+
+      <div class="hero-visual reveal in">
+        <div class="pricecard">
+          <div class="seal" aria-hidden="true">
+            <svg width="86" height="86" viewBox="0 0 86 86" fill="none">
+              <circle cx="43" cy="43" r="40" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+              <circle cx="43" cy="43" r="34" fill="none" stroke="var(--accent-soft)" stroke-width="1.5"/>
+              <path d="M31 43.5l7.5 7.5L57 33" stroke="var(--primary)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="43" y="20" text-anchor="middle" font-size="7.2" font-weight="700" fill="var(--accent)" font-family="system-ui" letter-spacing="0.5">VETTED</text>
+              <text x="43" y="70" text-anchor="middle" font-size="7.2" font-weight="700" fill="var(--accent)" font-family="system-ui" letter-spacing="0.5">INSURED</text>
+            </svg>
+          </div>
+          <div class="pc-label">Your price, up front</div>
+          <div class="pc-config">2 bed · 2 bath — Standard clean</div>
+          <div class="pc-price"><span class="big tnum">$219</span><span class="hst tnum">$247.47 incl. HST</span></div>
+          <ul class="pc-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Kitchen, bathrooms, floors &amp; living areas</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Background-checked, insured cleaner</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Not happy? We re-clean or refund</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <span class="strip-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 11-3.5-2.5-7-6-7-11V5l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> Vetted &amp; insured cleaners</span>
+      <span class="strip-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20.6 8.9l-8-5a2 2 0 0 0-2.1 0l-8 5A2 2 0 0 0 4 12.6l3-1.9V16c0 .5.3 1 .8 1.2 1.2.7 2.8 1.3 4.2 1.3s3-.6 4.2-1.3c.5-.2.8-.7.8-1.2v-5.3l2 1.3V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Fixed price, no quotes</span>
+      <span class="strip-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Satisfaction guaranteed</span>
+      <span class="strip-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg> Proudly local to Waterloo Region</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM -> PROMISE -->
+  <section class="sec-surface" id="why">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Why Tidely</span>
+        <h2>Finding a cleaner shouldn't feel like a gamble.</h2>
+        <p>You can already find cleaners a dozen ways. What's missing is knowing who to trust, what a fair price is, and what happens if a job goes wrong. Tidely takes that burden off your plate.</p>
+      </div>
+      <div class="swap reveal">
+        <div class="swap-col old">
+          <h3>The usual way</h3>
+          <ul class="swap-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Hunt across Google, referrals and Facebook groups</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Request quotes, wait for replies, negotiate scope</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Hope they're reliable — with no real recourse</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Surprise charges and unclear pricing</li>
+          </ul>
+        </div>
+        <div class="swap-col new">
+          <h3>The Tidely way</h3>
+          <ul class="swap-list good">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pick a standard clean tier that fits your home</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> See one clear, all-in price before you book</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Get matched with a vetted, insured cleaner</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Backed by a satisfaction guarantee, every time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec-mint" id="how">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Booking takes about a minute.</h2>
+        <p>Four simple steps — no phone tag, no in-home estimates, no haggling.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="num">1</span><h3>Tell us about your home</h3><p>Choose the tier that matches your bedrooms and bathrooms.</p></div>
+        <div class="step reveal"><span class="num">2</span><h3>Add any extras</h3><p>Inside the fridge, a deep clean, extra rooms — clear add-on prices, no surprises.</p></div>
+        <div class="step reveal"><span class="num">3</span><h3>See your fixed price</h3><p>Your full all-in price, HST included, shown before you commit to anything.</p></div>
+        <div class="step reveal"><span class="num">4</span><h3>Pick a time &amp; confirm</h3><p>Choose a window that works. We match you with a vetted, insured cleaner.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="sec-surface" id="pricing">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Transparent pricing</span>
+        <h2>Fixed price doesn't mean one price.</h2>
+        <p>It means no quote shopping and no surprise charges — a clear price ladder based on your home. All prices are before 13% HST.</p>
+      </div>
+      <div class="tiers">
+        <div class="tier reveal"><span class="tag">Compact</span><p class="cfg">1 bed · 1 bath, plus living, kitchen &amp; dining</p><div class="amt tnum">$149</div><div class="hst tnum">$168.37 incl. HST</div><span class="pill">Great for condos &amp; apartments</span></div>
+        <div class="tier reveal"><span class="tag">Tier 2</span><p class="cfg">2 bed · 1 bath, plus living, kitchen &amp; dining</p><div class="amt tnum">$189</div><div class="hst tnum">$213.57 incl. HST</div><span class="pill">Popular</span></div>
+        <div class="tier feature reveal"><span class="tag">Tier 3 · Most booked</span><p class="cfg">2 bed · 2 bath, plus living, kitchen &amp; dining</p><div class="amt tnum">$219</div><div class="hst tnum">$247.47 incl. HST</div><span class="pill">Best fit for many homes</span></div>
+        <div class="tier reveal"><span class="tag">Tier 4</span><p class="cfg">3 bed · 1 bath, plus living, kitchen &amp; dining</p><div class="amt tnum">$239</div><div class="hst tnum">$270.07 incl. HST</div><span class="pill">Growing families</span></div>
+        <div class="tier reveal"><span class="tag">Tier 5</span><p class="cfg">3 bed · 2 bath, plus living, kitchen &amp; dining</p><div class="amt tnum">$279</div><div class="hst tnum">$315.27 incl. HST</div><span class="pill">Larger homes</span></div>
+      </div>
+      <p class="tier-note reveal"><b>Need something extra?</b> Add-ons keep the price honest instead of hiding complexity — for example inside the fridge (+$30), inside the oven (+$35), an extra bedroom or office (+$25), or a full deep-clean upgrade. Bigger or non-standard jobs get a clear photo-based quote — never a guess.</p>
+    </div>
+  </section>
+
+  <!-- INCLUDED -->
+  <section class="sec-sand" id="included">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What's included</span>
+        <h2>Every standard clean follows the same checklist.</h2>
+        <p>So you know exactly what you're getting — and so does your cleaner. No vague promises.</p>
+      </div>
+      <div class="incl">
+        <div class="incl-card reveal">
+          <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg> Included in every standard clean</h3>
+          <ul class="incl-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Kitchen</b> — counters, sink, appliance exteriors, stovetop, floors</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Bathrooms</b> — sink, toilet, tub &amp; shower, mirror, floors</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Bedrooms &amp; living</b> — dusting, light tidy, surfaces</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>All floors</b> — vacuumed and mopped</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Tidy finish</b> — garbage to your bin, checklist confirmed</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Photo-verified</b> — key areas documented on completion</span></li>
+          </ul>
+        </div>
+        <div class="incl-card out reveal">
+          <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.9"/><path d="M8.5 12h7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg> Add these anytime</h3>
+          <ul class="incl-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Inside the fridge or oven</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Interior windows &amp; baseboards</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Deep-clean or move-in / move-out</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Laundry, extra rooms &amp; more</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST PILLARS -->
+  <section class="sec-surface" id="trust">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Our promise</span>
+        <h2>Trust isn't a feature. It's the whole point.</h2>
+        <p>You're inviting someone into your home. We built Tidely so that decision feels safe — every single time.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 11-3.5-2.5-7-6-7-11V5l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Vetted &amp; insured</h3>
+          <p>Every cleaner is background-checked and insurance-verified before they take a single job. The badge means something.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 0 1 15.5-6.3M21 12a9 9 0 0 1-15.5 6.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M18 3v3.5h-3.5M6 21v-3.5h3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Satisfaction guaranteed</h3>
+          <p>If a clean misses the mark, tell us within 24 hours. We'll arrange a re-clean or a fair refund — no runaround.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20.6 8.9l-8-5a2 2 0 0 0-2.1 0l-8 5A2 2 0 0 0 4 12.6l3-1.9V16c0 .5.3 1 .8 1.2 1.2.7 2.8 1.3 4.2 1.3s3-.6 4.2-1.3c.5-.2.8-.7.8-1.2v-5.3l2 1.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>One honest price</h3>
+          <p>The price you see is the price you pay, HST and all. No hidden fees, no upsells at the door, no negotiating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="sec-mint" id="waitlist">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Be first in line</span>
+        <h2>Join the waitlist.</h2>
+        <p>We're onboarding our first Waterloo Region households now. Join the list and you'll be first to book — plus early-bird perks when we launch.</p>
+      </div>
+      <div class="signup">
+        <!-- CUSTOMER FORM -->
+        <div class="form-card reveal">
+          <h3>I'd like my home cleaned</h3>
+          <p class="sub">Tell us a little about what you need. Takes 20 seconds.</p>
+          <form name="customer-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form="customer">
+            <input type="hidden" name="form-name" value="customer-waitlist">
+            <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+            <div class="two">
+              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="two">
+              <div class="field"><label for="c-postal">Postal code <span class="opt">(so we know where to launch)</span></label><input id="c-postal" name="postal_code" type="text" autocomplete="postal-code" placeholder="N2L"></div>
+              <div class="field"><label for="c-home">Your home</label>
+                <select id="c-home" name="home_size">
+                  <option value="">Select…</option>
+                  <option>1 bed · 1 bath</option>
+                  <option>2 bed · 1 bath</option>
+                  <option>2 bed · 2 bath</option>
+                  <option>3 bed · 1 bath</option>
+                  <option>3 bed · 2 bath</option>
+                  <option>Larger / not sure</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="c-freq">How often would you want cleaning? <span class="opt">(optional)</span></label>
+              <select id="c-freq" name="frequency">
+                <option value="">Select…</option>
+                <option>Just a one-time clean</option>
+                <option>Monthly</option>
+                <option>Every two weeks</option>
+                <option>Weekly</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Join the waitlist</button>
+            <p class="fineprint">No spam. We'll only email you about launching in your area.</p>
+          </form>
+          <div class="thanks">
+            <div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>You're on the list!</h3>
+            <p>Thanks for joining. We'll be in touch the moment Tidely launches in your neighbourhood.</p>
+          </div>
+        </div>
+
+        <!-- PROVIDER FORM -->
+        <div class="form-card provider reveal" id="cleaners">
+          <h3>I'm a cleaner</h3>
+          <p class="sub">Steady local jobs, fair pay (you keep 80%), fast payouts, and protection from unfair claims. No marketing or quoting to chase.</p>
+          <form name="provider-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form="provider">
+            <input type="hidden" name="form-name" value="provider-waitlist">
+            <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+            <div class="two">
+              <div class="field"><label for="p-name">Name</label><input id="p-name" name="name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="two">
+              <div class="field"><label for="p-phone">Phone <span class="opt">(optional)</span></label><input id="p-phone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="p-team">You work…</label>
+                <select id="p-team" name="team">
+                  <option value="">Select…</option>
+                  <option>On my own</option>
+                  <option>As a two-person team</option>
+                  <option>As a small crew</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="p-exp">Cleaning experience <span class="opt">(optional)</span></label>
+              <select id="p-exp" name="experience">
+                <option value="">Select…</option>
+                <option>Less than 1 year</option>
+                <option>1–3 years</option>
+                <option>3–5 years</option>
+                <option>5+ years</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Apply to clean with us</button>
+            <p class="fineprint">We'll reach out to walk you through vetting and onboarding.</p>
+          </form>
+          <div class="thanks">
+            <div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Thanks — we've got it!</h3>
+            <p>We'll be in touch soon to tell you more about joining the Tidely cleaner network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec-surface" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Good to know</span>
+        <h2>Questions, answered.</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>When does Tidely launch?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>We're launching in Waterloo Region soon, starting in Kitchener–Waterloo neighbourhoods. Join the waitlist and we'll email you the moment booking opens in your area.</p></details>
+        <details><summary>How is the price decided?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>You pick a standard-clean tier based on your bedrooms and bathrooms, then add any extras you want. The full price — HST included — is shown before you book. No quotes, no surprises.</p></details>
+        <details><summary>Are the cleaners vetted?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Yes. Every cleaner is background-checked, reference-checked, and insurance-verified before their first job — and reviewed on quality afterward. That's what the "Vetted &amp; Insured" badge stands for.</p></details>
+        <details><summary>What if I'm not happy with the clean?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Tell us within 24 hours and we'll make it right — a re-clean or a fair refund, reviewed against the standard checklist. Our satisfaction guarantee backs every booking.</p></details>
+        <details><summary>Can I book a recurring clean?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Absolutely. After your first clean you can set up weekly, bi-weekly, or monthly service at a recurring discount — same trusted cleaner whenever possible.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="9" fill="#5CBE9B"/>
+            <path d="M9 16.5l4.2 4.2L23 11" stroke="#0F3C30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Tidely
+        </div>
+        <p style="max-width:30ch;color:#C9DED4;margin-top:14px;font-size:.95rem">Trusted, fixed-price home cleaning for Waterloo Region.</p>
+        <p style="margin-top:14px"><span class="placeholder-flag">✎ Working name — easy to rename later</span></p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#included">What's included</a>
+        <a href="#trust">Our guarantee</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get started</h4>
+        <a href="#waitlist">Join the waitlist</a>
+        <a href="#cleaners">Clean with us</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <p>Waterloo Region, Ontario</p>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+        <p style="font-size:.82rem;color:#8FB3A3">(placeholder email — update before launch)</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tidely (working name). All rights reserved.</span>
+      <span>Cleaners are independent, vetted contractors.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+
+  // Form handling: real submit on Netlify, graceful success in preview/local
+  function encode(data){
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);
+    }).join('&');
+  }
+  document.querySelectorAll('form[data-form]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var fd = new FormData(form), obj = {};
+      fd.forEach(function(v,k){ obj[k]=v; });
+      // Backup capture so nothing is lost even before a backend is connected
+      try{
+        var key='tidely_'+form.getAttribute('data-form')+'_signups';
+        var arr=JSON.parse(localStorage.getItem(key)||'[]');
+        arr.push(Object.assign({at:new Date().toISOString()},obj));
+        localStorage.setItem(key,JSON.stringify(arr));
+      }catch(err){}
+      // Attempt real submission (works once deployed to Netlify)
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:encode(obj)})
+        .catch(function(){/* preview/local: ignore, still show success */})
+        .finally(function(){ form.classList.add('sent'); });
+    });
+  });
+</script>
+</body>
+</html>
