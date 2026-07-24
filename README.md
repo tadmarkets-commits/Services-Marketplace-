@@ -18,6 +18,7 @@ this, at these prices, in this area?*
 |------|------------|
 | `index.html` | The **landing page** — the trust story, pricing, and waitlist signup. |
 | `book.html` | The **4-step booking flow** — customers choose their home, add extras, see their exact fixed price (with HST), and request a time. |
+| `cleaners.html` | The **cleaner (provider) page** — the pitch to cleaners, how vetting works, and a full application form for you to review. |
 | `netlify.toml` | A tiny settings file that makes putting the site online effortless. |
 | `README.md` | This guide. |
 
@@ -69,6 +70,9 @@ no database to manage.**
     chosen tier, add-ons, frequency, preferred date/time, contact details, and the exact
     calculated total. This is your "manual-first" work queue: you receive the request,
     then match a vetted cleaner and confirm.
+  - **provider-application** — full cleaner applications from the cleaners page, including
+    experience, insurance status, references, availability, service area, and consent to
+    a background check. These are the applicants you vet and onboard.
 - Turn on **email notifications** (Netlify → Site settings → Forms → Notifications) so a new
   signup lands in your inbox the moment it happens.
 - You can export any list to a spreadsheet with one click.
@@ -109,8 +113,10 @@ lays out, the natural next pieces — each only worth building once there's real
 are:
 
 1. ~~The 4-step booking flow~~ ✅ **done** (`book.html`).
-2. **A simple admin dashboard** to see and manage bookings (your digital "spreadsheet").
-3. **Provider onboarding & vetting** tools.
+2. ~~Cleaner onboarding & application~~ ✅ **done** (`cleaners.html`).
+3. **A simple admin dashboard** to see and manage bookings, signups, and cleaner
+   applications in one place (your digital "spreadsheet"). Best built once the site is
+   live and real submissions are flowing in.
 4. **Online card payments** (Stripe), recurring plans, and the $20 referral credit.
 
 We'll build them one at a time, and only after the evidence says "go." That's your plan's
